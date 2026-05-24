@@ -382,9 +382,9 @@ function FoodTeaser({ navigate }) {
             Замовити їжу
           </button>
         </div>
-        <div className="grid-4" style={{ gap: 16 }}>
+        <div className="grid-4" style={{ gap: 16, alignItems: 'stretch' }}>
           {items.map((f) =>
-          <div key={f.id} className="card" style={{ padding: 14 }}>
+          <div key={f.id} className="card food-tease-card" style={{ padding: 14, display: 'flex', flexDirection: 'column', minHeight: 350 }}>
               <div style={{
               aspectRatio: '1/1', borderRadius: 14,
               background: `radial-gradient(70% 70% at 30% 30%, hsla(${f.hue},80%,55%,0.55), transparent 60%), linear-gradient(135deg, hsl(${f.hue},40%,18%), hsl(${f.hue},30%,10%))`,
@@ -395,9 +395,9 @@ function FoodTeaser({ navigate }) {
                 boxShadow: '0 20px 40px rgba(0,0,0,0.35), inset 0 -8px 20px rgba(0,0,0,0.3)'
               }} />
               </div>
-              <div style={{ marginTop: 12, fontSize: 14, fontWeight: 600, lineHeight: 1.25 }}>{f.name}</div>
-              <div style={{ marginTop: 4, fontSize: 12, color: 'var(--text-mute)' }}>{f.desc}</div>
-              <div style={{ marginTop: 10, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ marginTop: 12, minHeight: 38, fontSize: 14, fontWeight: 600, lineHeight: 1.25 }}>{f.name}</div>
+              <div style={{ minHeight: 42, fontSize: 12, lineHeight: 1.35, color: 'var(--text-mute)' }}>{f.desc}</div>
+              <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
                 <span style={{ fontWeight: 700, color: 'var(--accent-hi)' }}>{f.price} ₴</span>
                 <button className="btn btn-ghost btn-sm" style={{ height: 32 }}>
                   <Icon.plus size={12} /> Додати
@@ -409,6 +409,7 @@ function FoodTeaser({ navigate }) {
       </div>
       <style>{`
         @media (max-width: 980px) { .food-tease-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 560px) { .food-tease-card { min-height: 0 !important; } }
       `}</style>
     </section>);
 
