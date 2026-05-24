@@ -23,7 +23,7 @@
 function HeroSection({ navigate }) {
   const featured = MOVIES.find((m) => m.id === 'm4'); // Нейроніч
   return (
-    <section style={{ position: 'relative', overflow: 'hidden', paddingBottom: 28 }}>
+    <section style={{ position: 'relative', overflow: 'visible', paddingBottom: 28, zIndex: 3 }}>
       <div style={{
         position: 'absolute', inset: 0,
         background: `
@@ -125,7 +125,7 @@ function HeroSection({ navigate }) {
         </div>
 
         {/* Booking widget */}
-        <div style={{ marginTop: 64 }} className="fade-up">
+        <div style={{ marginTop: 64, position: 'relative', zIndex: 30 }} className="fade-up">
           <BookingWidget navigate={navigate} />
         </div>
       </div>

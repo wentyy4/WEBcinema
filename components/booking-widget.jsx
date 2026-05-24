@@ -40,7 +40,7 @@ function BookingWidget({ navigate, vertical }) {
         </button>
         {open && (
           <div style={{
-            position:'absolute', top: '100%', left: 0, right: 0, marginTop: 6, zIndex: 20,
+            position:'absolute', top: '100%', left: 0, right: 0, marginTop: 6, zIndex: 120,
             background:'#15171F', border:'1px solid var(--border-strong)', borderRadius: 14,
             boxShadow:'var(--shadow-md)', overflow:'hidden', maxHeight: 320, overflowY:'auto',
           }}>
