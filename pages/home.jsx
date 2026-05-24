@@ -138,7 +138,7 @@ function HeroSection({ navigate }) {
           .hero-booking-wrap { margin-top: 36px !important; }
           .hero-rating-chip {
             left: 10px !important;
-            top: 54px !important;
+            top: 74px !important;
             width: auto !important;
           }
         }
