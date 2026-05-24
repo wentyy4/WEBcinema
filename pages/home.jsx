@@ -100,7 +100,7 @@ function HeroSection({ navigate }) {
 
             {/* Floating chip with rating */}
             <div className="glass hero-rating-chip" style={{
-              position: 'absolute', top: 16, left: -16, borderRadius: 14,
+              position: 'absolute', top: 58, left: -16, borderRadius: 14,
               display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 13, padding: '12px 14px',
               lineHeight: 1.2
             }}>
@@ -138,7 +138,7 @@ function HeroSection({ navigate }) {
           .hero-booking-wrap { margin-top: 36px !important; }
           .hero-rating-chip {
             left: 10px !important;
-            top: 12px !important;
+            top: 54px !important;
             width: auto !important;
           }
         }
