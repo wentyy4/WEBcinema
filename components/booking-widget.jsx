@@ -22,8 +22,8 @@ function BookingWidget({ navigate, vertical }) {
       return () => document.removeEventListener('mousedown', onDoc);
     }, []);
     return (
-      <div ref={ref} style={{ position:'relative', flex: 1, minWidth: 0 }}>
-        <button onClick={() => setOpen(v => !v)} style={{
+      <div ref={ref} className="booking-field" style={{ position:'relative', flex: 1, minWidth: 0 }}>
+        <button className="booking-field-button" onClick={() => setOpen(v => !v)} style={{
           width:'100%', textAlign:'left',
           height: 64, padding: '10px 16px',
           background: open ? 'rgba(229,20,42,0.06)' : 'rgba(255,255,255,0.03)',
@@ -63,24 +63,53 @@ function BookingWidget({ navigate, vertical }) {
   };
 
   return (
-    <div className="glass" style={{
-      borderRadius: 22, padding: 16,
-      display:'grid',
-      gridTemplateColumns: vertical ? '1fr' : '1.7fr 1.1fr 0.9fr auto',
-      gap: 10, alignItems:'center',
-      boxShadow:'0 30px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06)',
-    }}>
-      <Field label="Фільм" value={movie?.title} onPick={setMovieId}
-        options={MOVIES.map(m => ({ value: m.id, label: m.title }))}/>
-      <Field label="Дата" value={`${date?.label}, ${date?.date}`} onPick={setDateId}
-        options={DATES.map(d => ({ value: d.id, label: `${d.label}, ${d.date}` }))}/>
-      <Field label="Час сеансу" value={time || '—'} onPick={setTime}
-        options={times.map(t => ({ value: t.time, label: `${t.time} · ${t.format}` }))}/>
-      <button className="btn btn-primary btn-lg" style={{ height: 64, padding:'0 22px', borderRadius: 14 }} onClick={submit}>
-        <Icon.search size={14}/>
-        Знайти квитки
-      </button>
-    </div>
+    <>
+      <div className="glass booking-widget" style={{
+        borderRadius: 22, padding: 16,
+        display:'grid',
+        gridTemplateColumns: vertical ? '1fr' : '1.7fr 1.1fr 0.9fr auto',
+        gap: 10, alignItems:'center',
+        boxShadow:'0 30px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06)',
+      }}>
+        <Field label="Фільм" value={movie?.title} onPick={setMovieId}
+          options={MOVIES.map(m => ({ value: m.id, label: m.title }))}/>
+        <Field label="Дата" value={`${date?.label}, ${date?.date}`} onPick={setDateId}
+          options={DATES.map(d => ({ value: d.id, label: `${d.label}, ${d.date}` }))}/>
+        <Field label="Час сеансу" value={time || '—'} onPick={setTime}
+          options={times.map(t => ({ value: t.time, label: `${t.time} · ${t.format}` }))}/>
+        <button className="btn btn-primary btn-lg booking-submit" style={{ height: 64, padding:'0 22px', borderRadius: 14 }} onClick={submit}>
+          <Icon.search size={14}/>
+          Знайти квитки
+        </button>
+      </div>
+      <style>{`
+        @media (max-width: 920px) {
+          .booking-widget {
+            grid-template-columns: 1fr 1fr !important;
+          }
+          .booking-submit {
+            grid-column: 1 / -1;
+            width: 100%;
+          }
+        }
+        @media (max-width: 620px) {
+          .booking-widget {
+            grid-template-columns: 1fr !important;
+            padding: 12px !important;
+            border-radius: 18px !important;
+            gap: 8px !important;
+          }
+          .booking-field-button,
+          .booking-submit {
+            height: 58px !important;
+            border-radius: 12px !important;
+          }
+          .booking-submit {
+            justify-content: center;
+          }
+        }
+      `}</style>
+    </>
   );
 }
 

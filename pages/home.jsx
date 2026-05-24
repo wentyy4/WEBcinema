@@ -125,7 +125,7 @@ function HeroSection({ navigate }) {
         </div>
 
         {/* Booking widget */}
-        <div style={{ marginTop: 64, position: 'relative', zIndex: 30 }} className="fade-up">
+        <div style={{ marginTop: 64, position: 'relative', zIndex: 30 }} className="fade-up hero-booking-wrap">
           <BookingWidget navigate={navigate} />
         </div>
       </div>
@@ -133,6 +133,9 @@ function HeroSection({ navigate }) {
       <style>{`
         @media (max-width: 960px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+        }
+        @media (max-width: 620px) {
+          .hero-booking-wrap { margin-top: 36px !important; }
         }
       `}</style>
     </section>);
