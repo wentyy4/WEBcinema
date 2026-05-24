@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Lumina Cinema — кіно у Києві, IMAX, Dolby Atmos, Premium</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+
+  <template id="__bundler_thumbnail" data-bg-color="#08080C">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="t-bg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#16060c"/>
+          <stop offset="1" stop-color="#08080c"/>
+        </linearGradient>
+        <radialGradient id="t-glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0" stop-color="rgba(229,20,42,0.45)"/>
+          <stop offset="1" stop-color="rgba(229,20,42,0)"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="800" fill="url(#t-bg)"/>
+      <circle cx="600" cy="400" r="320" fill="url(#t-glow)"/>
+      <circle cx="600" cy="390" r="128" fill="#E5142A"/>
+      <text x="600" y="440" text-anchor="middle" font-family="system-ui, sans-serif" font-size="154" font-weight="800" fill="#fff">L</text>
+      <text x="600" y="640" text-anchor="middle" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="#fff" letter-spacing="8">LUMINA</text>
+      <text x="600" y="690" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#9aa0ad" letter-spacing="6">CINEMA · 2026</text>
+    </svg>
+  </template>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="data.jsx"></script>
+  <script type="text/babel" src="components/atoms.jsx"></script>
+  <script type="text/babel" src="components/auth.jsx"></script>
+  <script type="text/babel" src="components/header.jsx"></script>
+  <script type="text/babel" src="components/footer.jsx"></script>
+  <script type="text/babel" src="components/booking-widget.jsx"></script>
+  <script type="text/babel" src="pages/home.jsx"></script>
+  <script type="text/babel" src="pages/movies.jsx"></script>
+  <script type="text/babel" src="pages/today.jsx"></script>
+  <script type="text/babel" src="pages/schedule.jsx"></script>
+  <script type="text/babel" src="pages/movie.jsx"></script>
+  <script type="text/babel" src="pages/seats.jsx"></script>
+  <script type="text/babel" src="pages/checkout.jsx"></script>
+  <script type="text/babel" src="pages/food.jsx"></script>
+  <script type="text/babel" src="pages/cinemas.jsx"></script>
+  <script type="text/babel" src="pages/premium.jsx"></script>
+  <script type="text/babel" src="pages/misc.jsx"></script>
+  <script type="text/babel" src="pages/profile.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
