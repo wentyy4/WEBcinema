@@ -107,11 +107,11 @@ function FoodPage({ navigate }) {
 
         <div className="grid-4" style={{ marginTop: 24 }}>
           {visible.map(f => (
-            <div key={f.id} className="card movie-card food-card" style={{ padding: 14, display:'grid', gridTemplateRows:'auto 44px 42px auto', gap: 0 }}>
+            <div key={f.id} className="card movie-card food-card" style={{ padding: 14, display:'flex', flexDirection:'column', minHeight: 350 }}>
               <FoodIcon hue={f.hue}/>
-              <div style={{ marginTop: 14, fontSize: 15, lineHeight: 1.2, fontWeight: 600 }}>{f.name}</div>
-              <div style={{ marginTop: 4, fontSize: 12.5, lineHeight: 1.35, color:'var(--text-mute)' }}>{f.desc}</div>
-              <div style={{ marginTop: 14, display:'flex', alignItems:'center', justifyContent:'space-between', gap: 10 }}>
+              <div style={{ marginTop: 14, minHeight: 40, fontSize: 15, lineHeight: 1.2, fontWeight: 600 }}>{f.name}</div>
+              <div style={{ minHeight: 42, fontSize: 12.5, lineHeight: 1.35, color:'var(--text-mute)' }}>{f.desc}</div>
+              <div style={{ marginTop: 'auto', display:'flex', alignItems:'center', justifyContent:'space-between', gap: 10 }}>
                 <span style={{ fontWeight: 700, fontSize: 16, color:'var(--accent-hi)' }}>{f.price} ₴</span>
                 {cart[f.id] ? (
                   <div style={{ display:'flex', alignItems:'center', gap: 8, padding: 4, background:'rgba(229,20,42,0.12)', borderRadius: 999, border:'1px solid rgba(229,20,42,0.3)' }}>
@@ -174,7 +174,7 @@ function FoodPage({ navigate }) {
 
       <style>{`
         @media (max-width: 880px) { .food-hero { grid-template-columns: 1fr !important; gap: 36px !important; } }
-        @media (max-width: 560px) { .food-card { grid-template-rows: auto auto auto auto !important; } }
+        @media (max-width: 560px) { .food-card { min-height: 0 !important; } }
       `}</style>
     </>
   );
