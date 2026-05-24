@@ -99,14 +99,21 @@ function HeroSection({ navigate }) {
             </button>
 
             {/* Floating chip with rating */}
-            <div className="glass" style={{
+            <div className="glass hero-rating-chip" style={{
               position: 'absolute', top: 16, left: -16, borderRadius: 14,
-              display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, padding: "16px 14px 13px", lineHeight: "1.4", width: "214px", letterSpacing: "-1.3px", height: "78px"
+              display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, padding: '12px 14px',
+              lineHeight: 1.2, maxWidth: 230
             }}>
-              <span style={{ color: 'var(--accent-hi)', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              <span style={{ color: 'var(--accent-hi)', display: 'inline-flex', alignItems: 'center', gap: 4, flex: '0 0 auto' }}>
                 <Icon.star size={14} /> <strong style={{ color: '#fff' }}>{featured.rating}</strong>
               </span>
-              <span style={{ color: 'var(--text-mute)' }}>· {featured.duration} · {featured.age}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 5, flexWrap: 'wrap', minWidth: 0 }}>
+                {featured.formats.slice(0, 2).map(f => (
+                  <span key={f} className={'badge hero-format-badge ' + (f === 'IMAX' ? 'imax' : f === '4DX' ? 'dx4' : f === 'Premium' ? 'premium' : '')}>
+                    {f}
+                  </span>
+                ))}
+              </span>
             </div>
 
             {/* Floating bottom chip */}
@@ -136,6 +143,19 @@ function HeroSection({ navigate }) {
         }
         @media (max-width: 620px) {
           .hero-booking-wrap { margin-top: 36px !important; }
+          .hero-rating-chip {
+            left: 10px !important;
+            right: 10px !important;
+            top: 12px !important;
+            width: auto !important;
+            max-width: calc(100% - 20px) !important;
+            align-items: flex-start !important;
+          }
+          .hero-format-badge {
+            height: 20px !important;
+            padding: 0 7px !important;
+            font-size: 10px !important;
+          }
         }
       `}</style>
     </section>);

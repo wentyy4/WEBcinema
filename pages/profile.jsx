@@ -9,7 +9,7 @@ function TicketCard({ ticket, mode = 'upcoming', onShowQR }) {
   const [label, bg, bd, fg] = statusMap[ticket.status] || statusMap.used;
 
   return (
-    <div className="card" style={{ padding: 0, overflow:'hidden', display:'grid', gridTemplateColumns:'auto 1fr auto', gap: 0, alignItems:'stretch' }} >
+    <div className="card ticket-card" style={{ padding: 0, overflow:'hidden', display:'grid', gridTemplateColumns:'auto minmax(0, 1fr) auto', gap: 0, alignItems:'stretch' }} >
       {/* Stub */}
       <div style={{
         width: 92, position:'relative',
@@ -23,9 +23,9 @@ function TicketCard({ ticket, mode = 'upcoming', onShowQR }) {
         }}/>
       </div>
       {/* Body */}
-      <div style={{ padding: 18, display:'flex', flexDirection:'column', gap: 10, minWidth: 0 }}>
+      <div className="ticket-body" style={{ padding: 18, display:'flex', flexDirection:'column', gap: 10, minWidth: 0, overflow: 'hidden' }}>
         <div style={{ display:'flex', alignItems:'center', gap: 10, flexWrap:'wrap' }}>
-          <div style={{ fontSize: 17, fontWeight: 700 }}>{movie.title}</div>
+          <div style={{ fontSize: 17, fontWeight: 700, minWidth: 0, overflowWrap: 'anywhere' }}>{movie.title}</div>
           <span style={{
             display:'inline-flex', alignItems:'center', gap: 6,
             padding:'3px 10px', borderRadius: 999,
@@ -39,19 +39,19 @@ function TicketCard({ ticket, mode = 'upcoming', onShowQR }) {
         <div style={{ display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap: 10, fontSize: 13 }} className="ticket-grid">
           <div>
             <div style={{ fontSize: 10, color:'var(--text-mute)', textTransform:'uppercase', letterSpacing:'0.08em' }}>Дата і час</div>
-            <div style={{ color:'var(--text)', marginTop: 2 }}>{ticket.date} · <strong>{ticket.time}</strong></div>
+            <div style={{ color:'var(--text)', marginTop: 2, overflowWrap: 'anywhere' }}>{ticket.date} · <strong>{ticket.time}</strong></div>
           </div>
           <div>
             <div style={{ fontSize: 10, color:'var(--text-mute)', textTransform:'uppercase', letterSpacing:'0.08em' }}>Кінотеатр</div>
-            <div style={{ color:'var(--text)', marginTop: 2 }}>{ticket.cinema}</div>
+            <div style={{ color:'var(--text)', marginTop: 2, overflowWrap: 'anywhere' }}>{ticket.cinema}</div>
           </div>
           <div>
             <div style={{ fontSize: 10, color:'var(--text-mute)', textTransform:'uppercase', letterSpacing:'0.08em' }}>Зал</div>
-            <div style={{ color:'var(--text)', marginTop: 2 }}>{ticket.hall}</div>
+            <div style={{ color:'var(--text)', marginTop: 2, overflowWrap: 'anywhere' }}>{ticket.hall}</div>
           </div>
           <div>
             <div style={{ fontSize: 10, color:'var(--text-mute)', textTransform:'uppercase', letterSpacing:'0.08em' }}>Місця</div>
-            <div style={{ color:'var(--text)', marginTop: 2 }}>{ticket.seats}</div>
+            <div style={{ color:'var(--text)', marginTop: 2, overflowWrap: 'anywhere' }}>{ticket.seats}</div>
           </div>
         </div>
         <div style={{ marginTop: 4, display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap: 12 }}>
@@ -90,9 +90,11 @@ function TicketCard({ ticket, mode = 'upcoming', onShowQR }) {
       </div>
       <style>{`
         @media (max-width: 720px) {
-          .card[style*="92px 1fr"], .card[style*="auto 1fr auto"] { grid-template-columns: 70px 1fr !important; }
+          .ticket-card { grid-template-columns: 72px minmax(0, 1fr) !important; }
+          .ticket-body { padding: 14px !important; }
           .ticket-qr { display: none !important; }
           .ticket-grid { grid-template-columns: 1fr !important; }
+          .ticket-body .btn { width: 100%; }
         }
       `}</style>
     </div>
